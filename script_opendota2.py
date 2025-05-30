@@ -12,7 +12,7 @@ for hero in heroes_data:
     roles = hero.get("roles", [])
     hero["win_rate"] = (wins / picks * 100) if picks > 0 else 0
 
-# Função para obter o win rate de um herói
+# Função para obter o win rate
 def get_win_rate(hero):
     return hero["win_rate"]
 
@@ -22,7 +22,7 @@ sorted_heroes = sorted(heroes_data, key=get_win_rate, reverse=True)
 # Cria um DataFrame para melhor visualização dos 10 melhores
 heroes_df = pd.DataFrame(sorted_heroes, columns=["localized_name", "win_rate", "roles"])
 
-# Renomeia as colunas para algo mais amigável
+# Renomeia as colunas
 heroes_df.columns = ["Hero", "Win Rate","Roles"]
 
 # Formata o win rate para duas casas decimais
@@ -43,7 +43,7 @@ for hero in heroes_data:
 # Cria um DataFrame para os heróis banidos      
 ban_heroes_df = pd.DataFrame(heroes_data, columns=["localized_name", "ban_count","roles"])
 
-# Renomeia as colunas para algo mais amigável   
+# Renomeia as colunas 
 ban_heroes_df.columns = ["Hero", "Ban Count", "Roles"]
 
 # Ordena os heróis pelo número de bans
@@ -64,7 +64,7 @@ for hero in heroes_data:
 # Cria um DataFrame para os heróis escolhidos
 pick_heroes_df = pd.DataFrame(heroes_data, columns=["localized_name", "pick_count", "roles"])
 
-# Renomeia as colunas para algo mais amigável  
+# Renomeia as colunas 
 pick_heroes_df.columns = ["Hero", "Pick Count", "Roles"]
 
 # Ordena os heróis pelo número de picks
@@ -107,6 +107,7 @@ public_df["duration"] = public_df["duration"].apply(lambda x: round(x / 60, 2) i
 public_matches = public_df
 
 ##########################################################################################
+# Passo para outro dataframe para facilitar a leitura no Power BI
 
 dataset_heroes_ban_count = heroes_ban_count
 dataset_heroes_pick_count = heroes_pick_count
